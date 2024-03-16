@@ -39,30 +39,36 @@ class _SaveCardState extends State<SaveCard> {
       },
     );
 
-    return SizedBox(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const Text(
-            AppStrings.switchText,
-            style: TextStyle(
-              color: AppColors.grey,
-              fontSize: 18.0,
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          border: Border.all(width: 0.5, color: AppColors.switchBtn)),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 6.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              AppStrings.switchText,
+              style: TextStyle(
+                color: AppColors.grey,
+                fontSize: 18.0,
+              ),
             ),
-          ),
-          Switch(
-            value: light,
-            overlayColor: overlayColor,
-            trackColor: trackColor,
-            thumbColor:
-                const MaterialStatePropertyAll<Color>(AppColors.switchBtn),
-            onChanged: (bool value) {
-              setState(() {
-                light = value;
-              });
-            },
-          ),
-        ],
+            Switch(
+              value: light,
+              overlayColor: overlayColor,
+              trackColor: trackColor,
+              thumbColor:
+                  const MaterialStatePropertyAll<Color>(AppColors.switchBtn),
+              onChanged: (bool value) {
+                setState(() {
+                  light = value;
+                });
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
